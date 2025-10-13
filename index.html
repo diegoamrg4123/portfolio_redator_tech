@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Amorim Goulart - Jornalista TECH</title>
+    <meta name="description" content="Redator especializado em cobertura de tecnologia e análise de dados estatísticos. Cientista Social formado pela UFG com mais de 4 anos de experiência em redação para portais de cobertura de tecnologia.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e74c3c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 2px solid #e74c3c;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #e74c3c;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        /* About Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #e74c3c;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Articles Section */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        @media (min-width: 1200px) {
+            .articles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #e74c3c;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card.coming-soon {
+            border-left-color: #95a5a6;
+            opacity: 0.8;
+        }
+
+        .article-card.coming-soon:hover {
+            transform: translateY(-4px);
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .article-category {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-card.coming-soon .article-category {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        }
+
+        .article-date {
+            color: #777;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .article-card h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .article-subtitle {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .article-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+
+        .article-highlights {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid #3498db;
+            font-size: 0.85rem;
+        }
+
+        .article-highlights strong {
+            color: #2c3e50;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .article-link {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+            padding: 6px 0;
+            font-size: 0.9rem;
+        }
+
+        .article-link:hover {
+            color: #c0392b;
+            transform: translateX(5px);
+        }
+
+        .coming-soon-text {
+            color: #95a5a6;
+            cursor: default;
+        }
+
+        .coming-soon-text:hover {
+            transform: none;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1492687946416-9b09ffdb542d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact .section-title h2::after {
+            background-color: #e74c3c;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #e74c3c;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #e74c3c;
+        }
+
+        .footer-column p,
+        .footer-column li {
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #e74c3c;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #e74c3c;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Diego <span>Amorim Goulart</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#artigos">Artigos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Diego Amorim Goulart</h1>
+            <p>Redator especializado em cobertura de tecnologia e análise de dados estatísticos. Cientista Social formado pela UFG com mais de 4 anos de experiência em redação para portais de cobertura de tecnologia.</p>
+            <div class="hero-buttons">
+                <a href="#artigos" class="btn">Ver Artigos</a>
+                <a href="#contato" class="btn btn-outline">Entrar em Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="sobre">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Mim</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Olá, sou Diego Amorim Goulart</h3>
+                    <p>Cientista Social formado pela UFG com experiência em métodos quantitativos, análise de dados e estatística aplicada às ciências sociais e pesquisa acadêmica. Minha trajetória combina formação acadêmica com mais de 4 anos de experiência prática em redação para grandes portais de tecnologia como TecMundo e Voxel, Mundo Conectado e Adrenaline.</p>
+                    <p>Atualmente, faço parte do projeto GuaIA na UFG, onde trabalho com soluções de inteligência artificial para o combate à desinformação eleitoral.</p>
+                    <p>Em escrita, tenho familiaridade tanto com SEO para redações rápidas quanto com artigos jornalísticos completos ou escrita acadêmica. Para análises estatísticas voltadas à academia ou jornalismo, tenho experiência com R e Excel, e familiaridade com Python para análise de dados.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://raw.githubusercontent.com/diegoamrg4123/portfolio_academico_diego_amorim/main/cortado-apresentacao-perfil.png" alt="Diego Amorim Goulart - Jornalista de Dados">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="section" id="artigos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Artigos e Publicações</h2>
+            </div>
+            <div class="articles-grid">
+                <a href="https://substack.com/home/post/p-172035997" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Jornalismo de Dados</div>
+                        <div class="article-date">Substack • 2025</div>
+                    </div>
+                    <h3>A armadilha dos percentuais: Quando "dobrar o risco" significa quase nada na prática</h3>
+                    <p class="article-subtitle">Para não cair em manchetes sensacionalistas e interpretar corretamente dados estatísticos do dia a dia</p>
+                </a>
+
+                <a href="https://substack.com/home/post/p-171308850" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Análise Política</div>
+                        <div class="article-date">Substack • 2025</div>
+                    </div>
+                    <h3>Uma resposta do Grok me fez escrever esse artigo</h3>
+                    <p class="article-subtitle">A importância de entender o básico sobre sistemas Parlamentaristas, mesmo vivendo sob um Presidencialismo</p>
+                </a>
+
+                <a href="https://www.tecmundo.com.br/voxel/500436-g-assist-saiba-tudo-sobre-a-ia-gamer-que-esta-chegando-para-gpus-rtx.htm" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Inteligência Artificial</div>
+                        <div class="article-date">TecMundo • 2025</div>
+                    </div>
+                    <h3>G-Assist: Saiba tudo sobre a IA Gamer que está chegando para GPUs RTX</h3>
+                    <p class="article-subtitle">Assistente de IA da NVIDIA integrado ao NVIDIA App com processamento local em placas GeForce RTX</p>
+                </a>
+
+                <a href="https://www.adrenaline.com.br/games/brazil-pixel-brasileiro-cria-ferramenta-que-pode-revolucionar-analises-tecnicas-de-jogos" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Tecnologia & Games</div>
+                        <div class="article-date">Adrenaline • 2025</div>
+                    </div>
+                    <h3>Brazil Pixel: Brasileiro cria ferramenta que pode revolucionar análises técnicas de jogos</h3>
+                    <p class="article-subtitle">Ferramenta brasileira detecta resolução nativa de jogos em tempo real e automatiza análises antes feitas manualmente</p>
+                </a>
+
+                <a href="https://www.mundoconectado.com.br/inteligencia-artificial/claude-agora-permite-criar-e-compartilhar-apps-interativos-com-ia-de-forma-simples-e-gratuita" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Inteligência Artificial</div>
+                        <div class="article-date">Mundo Conectado • 2025</div>
+                    </div>
+                    <h3>Claude agora permite criar e compartilhar apps interativos com IA de forma simples e gratuita</h3>
+                    <p class="article-subtitle">Artifacts do Claude democratizam criação de aplicativos com funcionalidade de compartilhamento gratuito</p>
+                </a>
+
+                <a href="https://www.mundoconectado.com.br/inteligencia-artificial/openai-anuncia-iniciativa-openai-for-countries-para-apoiar-infraestrutura-de-ia-em-paises-aliados" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Inteligência Artificial</div>
+                        <div class="article-date">Mundo Conectado • 2025</div>
+                    </div>
+                    <h3>OpenAI anuncia iniciativa "OpenAI for Countries" para apoiar infraestrutura de IA em países aliados</h3>
+                    <p class="article-subtitle">Projeto Stargate expande globalmente com parcerias estratégicas para desenvolvimento de infraestrutura democrática de IA</p>
+                </a>
+
+                <a href="https://www.tecmundo.com.br/voxel/277166-rtx-4070-super-veja-benchmarks-reviews-nova-gpu-da-nvidia.htm" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Hardware</div>
+                        <div class="article-date">TecMundo • 2024</div>
+                    </div>
+                    <h3>RTX 4070 Super: veja benchmarks e reviews da nova GPU da Nvidia</h3>
+                    <p class="article-subtitle">Análise completa da RTX 4070 Super com benchmarks e comparativos de performance em 1440p e 4K</p>
+                </a>
+
+                <a href="https://www.tecmundo.com.br/voxel/282572-vale-pena-usar-amd-fsr-3-geracao-frames-inves-dlss-gpus-nvidia.htm" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Hardware</div>
+                        <div class="article-date">TecMundo • 2024</div>
+                    </div>
+                    <h3>Vale a pena usar o AMD FSR 3 com geração de frames ao invés do DLSS em GPUs Nvidia?</h3>
+                    <p class="article-subtitle">Guia completo comparando FSR 3 da AMD com DLSS 3 da Nvidia em placas GeForce RTX</p>
+                </a>
+
+                <a href="https://www.adrenaline.com.br/artigos/amd-freesync-o-que-e-e-como-funciona/" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Hardware</div>
+                        <div class="article-date">Adrenaline • 2024</div>
+                    </div>
+                    <h3>AMD FreeSync: o que é e como funciona</h3>
+                    <p class="article-subtitle">Guia completo sobre a tecnologia AMD FreeSync para sincronização adaptativa em monitores</p>
+                </a>
+
+                <a href="https://www.adrenaline.com.br/tutorial/como-monitorar-a-temperatura-da-cpu-e-da-gpu-na-barra-de-tarefas-do-windows/" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Tutorial</div>
+                        <div class="article-date">Adrenaline • 2024</div>
+                    </div>
+                    <h3>Como monitorar a temperatura da CPU e da GPU na barra de tarefas do Windows</h3>
+                    <p class="article-subtitle">Tutorial passo a passo para acompanhar temperaturas de componentes diretamente no Windows</p>
+                </a>
+
+                <a href="https://www.adrenaline.com.br/tutorial/como-remapear-qualquer-tecla-no-windows/" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Tutorial</div>
+                        <div class="article-date">Adrenaline • 2024</div>
+                    </div>
+                    <h3>Como remapear qualquer tecla no Windows</h3>
+                    <p class="article-subtitle">Guia prático para personalizar e remapear teclas do teclado no sistema Windows</p>
+                </a>
+
+                <a href="https://www.adrenaline.com.br/amd/amd-fsr-3-e-hypr-rx-entenda-o-que-e-e-como-funciona/" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Hardware</div>
+                        <div class="article-date">Adrenaline • Set 2023</div>
+                    </div>
+                    <h3>AMD FSR 3 e HYPR-RX: entenda o que é e como funciona</h3>
+                    <p class="article-subtitle">Tecnologias da AMD que prometem rivalizar com DLSS 3 da Nvidia, incluindo geração de quadros</p>
+                </a>
+
+                <a href="https://www.adrenaline.com.br/nvidia/vlc-media-player-adiciona-suporte-para-o-nvidia-rtx-video-super-resolution/" target="_blank" class="article-card">
+                    <div class="article-header">
+                        <div class="article-category">Tecnologia</div>
+                        <div class="article-date">Adrenaline • Abr 2023</div>
+                    </div>
+                    <h3>VLC Media Player adiciona suporte para o NVIDIA RTX Video Super Resolution</h3>
+                    <p class="article-subtitle">VLC recebe atualização com suporte à tecnologia de upscaling de vídeos da Nvidia</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="servicos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Serviços</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Jornalismo de Dados</h3>
+                    <p>Análise e visualização de dados para produção de reportagens baseadas em evidências. Uso de R e Python para insights jornalísticos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Fact-checking e Verificação</h3>
+                    <p>Verificação rigorosa de informações usando técnicas avançadas de pesquisa em redes sociais e análise de dados para combate à desinformação.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3>Redação Técnica Especializada</h3>
+                    <p>Produção de conteúdo otimizado sobre tecnologia, IA e inovação, adaptado para diferentes audiências e plataformas digitais.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Pesquisa Quantitativa</h3>
+                    <p>Aplicação de métodos estatísticos e análise quantitativa em projetos de pesquisa social e investigação jornalística aprofundada.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Cobertura Política</h3>
+                    <p>Análise política baseada em dados e metodologias acadêmicas. Cobertura de sistemas eleitorais, instituições democráticas e processos políticos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Cobertura de Tecnologia</h3>
+                    <p>Reportagens especializadas em hardware, software, inteligência artificial e tendências tecnológicas para grandes portais e veículos de comunicação.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Análise e Visualização de Dados</h3>
+                    <p>Processamento e interpretação de conjuntos de dados complexos utilizando ferramentas estatísticas avançadas para geração de insights e criação de visualizações impactantes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Research & White Papers</h3>
+                    <p>Produção de estudos aprofundados e white papers que combinam rigor metodológico acadêmico com aplicabilidade comercial para empresas e organizações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contato">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong><br>
+                        diegoamrg15@gmail.com
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <strong>LinkedIn</strong><br>
+                        www.linkedin.com/in/diego-amorim-goulart-52a8811a2
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Localização</strong><br>
+                        Goiânia, Goiás - Brasil
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <strong>GitHub</strong><br>
+                        github.com/diegoamrg4123
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Diego Amorim Goulart</h3>
+                    <p>Redator especializado em cobertura de tecnologia e análise de dados estatísticos. Cientista Social (UFG) e professor.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/diego-amorim-goulart-52a8811a2" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/diegoamrg4123" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/amorimdiego29" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#artigos">Artigos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Especialidades</h3>
+                    <ul>
+                        <li>Jornalismo de Dados</li>
+                        <li>Análise com R & Python</li>
+                        <li>Combate à Desinformação</li>
+                        <li>Redação Técnica</li>
+                        <li>Fact-checking</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> diegoamrg15@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Goiânia, Goiás - Brasil</p>
+                    <p><i class="fab fa-linkedin"></i> LinkedIn/diego-amorim-goulart-52a8811a2</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Diego Amorim Goulart. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+</html>
